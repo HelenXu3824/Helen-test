@@ -82,6 +82,22 @@ Or clear, verifiable conditions.
 
 **Vague acceptance criteria are not permitted.**
 
+## User Story Decomposition Sizing (Required)
+When breaking down features or Epics into User Stories, the following sizing constraints must be applied to every story produced:
+
+| Dimension | Target | Hard Limit |
+|-----------|--------|------------|
+| Code volume | ~500 lines | ≤ 800 lines |
+| Story points | ~2 points | — |
+
+- **Code volume** refers to net new or modified lines of production code (excluding tests, auto-generated files, and configuration).
+- A story estimated at more than 800 lines of code must be split into smaller stories before it is accepted into a sprint.
+- **Story points** follow the team's Fibonacci scale; each story should represent approximately **2 points** of engineering effort.
+- Stories that significantly exceed 2 points must be decomposed further until both the code-volume and story-point constraints are satisfied.
+- These constraints apply to all story types: new features, enhancements, bug fixes, and technical tasks.
+
+---
+
 ## Release Notes Focus (Business and Users)
 - Release Notes must not document technical implementation details.
 - Release Notes must focus on:
