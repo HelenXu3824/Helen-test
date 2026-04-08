@@ -12,7 +12,7 @@ flowchart TD
     %%  FRONTEND LAYER
     %% ─────────────────────────────────────────────────────
     subgraph FE["Frontend Layer"]
-        WC["Web Client\n(Dashboard & Report Builder)\n───────────────────────\n• TypeScript framework\n  (Vue / React / Angular)\n• Drag-and-drop layout\n• Visualisation components\n  (EChart – front-end)"]
+        WC["Web Client\n(Dashboard & Report Builder)\n───────────────────────\n• TypeScript framework\n  (Vue / React / Angular)\n• Drag-and-drop layout\n• Visualization components\n  (Apache ECharts – front-end)"]
     end
 
     %% ─────────────────────────────────────────────────────
@@ -26,7 +26,7 @@ flowchart TD
             SVC["Service Layer\n───────────────────────\n• Reporting business logic\n• Granularity selection\n  (AUTO: hour / day / month)\n• DataSource decision\n  (aggregated vs. raw)"]
             TSE["TimeSeries Engine\n───────────────────────\n• Time-bucket alignment\n• abscissaValues / values\n  array alignment"]
             DAO["DAO Layer\n───────────────────────\n• Query aggregated_data_table\n  (default)\n• Query raw_data_table\n  (detail export / debug)\n• Tenant scoping &\n  dimension auth enforcement"]
-            OUT["Report Output\n───────────────────────\n• EChart → PNG / JPEG\n• Apache PDFBox → PDF\n• Apache POI → Excel"]
+            OUT["Report Output\n───────────────────────\n• Apache ECharts → PNG / JPEG\n• Apache PDFBox → PDF\n• Apache POI → Excel"]
         end
 
         RP -->|Forward API requests| CTL
@@ -99,7 +99,7 @@ flowchart TD
 
 ### Optional Components
 - **PostgreSQL Shard Nodes** — deployed only when data volume or multi-tenancy requires horizontal partitioning; accessed by the Master Gateway via Foreign Data Wrapper (FDW).
-- **Report Output sub-modules** (PDFBox / POI) — invoked only on explicit export actions (PDF / Excel); EChart image generation is also used for scheduled report previews.
+- **Report Output sub-modules** (PDFBox / POI) — invoked only on explicit export actions (PDF / Excel); Apache ECharts image generation is also used for scheduled report previews.
 
 ### Key Design Decisions
 - The DAO Layer enforces **tenant isolation and dimension-level authorisation** at query time; SQL error details are never surfaced to the client.
